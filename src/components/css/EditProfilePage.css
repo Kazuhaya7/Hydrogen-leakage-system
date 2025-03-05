@@ -1,0 +1,117 @@
+/* General Styling */
+.graph-page-container {
+  padding: 30px;
+  font-family: 'Arial', sans-serif;
+  background-color: #f9f9f9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  max-width: 900px; /* Limit the maximum width */
+  margin: 20px auto; /* Center the container */
+}
+
+/* Graph page container hover effect */
+.graph-page-container:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  transform: translateY(-3px);
+}
+
+/* Title Styling */
+.graph-page-container h2 {
+  color: #333;
+  margin-bottom: 30px;
+  text-align: center;
+  font-size: 2em;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 10px;
+  width: 100%;
+}
+
+/* Date Range Selector Styling */
+.date-range-selector {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.date-picker {
+  display: flex;
+  flex-direction: column;
+  margin-right: 25px;
+}
+
+.date-picker label {
+  color: #555;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+/* React Datepicker Styling - Needs override */
+.react-datepicker-wrapper input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1em;
+  color: #555;
+  width: 150px; /* Set a fixed width for uniformity */
+  box-sizing: border-box;
+}
+
+/* Button Styling */
+.date-range-selector button,
+.export-button {
+  padding: 12px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1.1em;
+  transition: background-color 0.3s ease;
+}
+
+.date-range-selector button:hover,
+.export-button:hover {
+  background-color: #0056b3;
+}
+
+/* Chart Container Styling */
+.chart-container {
+  width: 90%;
+  max-width: 800px; /* Limit chart width for better readability */
+  margin-bottom: 30px;
+}
+
+/* Export Button Styling */
+.export-button {
+  background-color: #28a745;
+}
+
+.export-button:hover {
+  background-color: #1e7e34;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .date-range-selector {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .date-picker {
+    margin-right: 0;
+    margin-bottom: 15px;
+  }
+
+  .react-datepicker-wrapper input {
+    width: 100%;
+  }
+
+  .chart-container {
+    width: 100%;
+  }
+}
