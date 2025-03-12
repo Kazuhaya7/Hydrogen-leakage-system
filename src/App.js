@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Route, Routes, Navigate, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import LoginPage from './components/LoginPage';
 import RegisterPage from './components/RegisterPage';
 import HomePage from './components/HomePage';
 import ProfilePage from './components/ProfilePage';
 import EditProfilePage from './components/EditProfilePage';
 import Header from './components/Header';
-import GraphPage from './components/GraphPage';  // Import GraphPage
+import GraphPage from './components/GraphPage';
+import Sidebar from './components/Sidebar';
+import LogHistoryPage from './components/LogHistoryPage'; // Import LogHistoryPage
+import './App.css';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -44,18 +47,28 @@ function App() {
 
   return (
     <Router>
-      <div>
-        <Header isLoggedIn={isLoggedIn} onLogout={handleLogout} user={user} profile={profile} />
+      <Header isLoggedIn={isLoggedIn} onLogout={handleLogout} user={user} profile={profile} />
 
+      {isLoggedIn ? (
+        <>
+          <Sidebar isLoggedIn={isLoggedIn} />
+          <div className="content">
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/profile" element={<ProfilePage user={user} profile={profile} />} />
+              <Route path="/profile/edit" element={<EditProfilePage profile={profile} onUpdate={handleProfileUpdate} />} />
+              <Route path="/graph" element={<GraphPage />} />
+              <Route path="/loghistory" element={<LogHistoryPage />} /> {/* Add the new route */}
+            </Routes>
+          </div>
+        </>
+      ) : (
         <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/login" element={!isLoggedIn ? <LoginPage onLogin={handleLogin} /> : <Navigate to="/" />} />
-          <Route path="/register" element={!isLoggedIn ? <RegisterPage onRegister={handleRegister} /> : <Navigate to="/" />} />
-          <Route path="/profile" element={isLoggedIn ? <ProfilePage user={user} profile={profile} /> : <Navigate to="/login" />} />
-          <Route path="/profile/edit" element={isLoggedIn ? <EditProfilePage profile={profile} onUpdate={handleProfileUpdate} /> : <Navigate to="/login" />} />
-          <Route path="/graph" element={<GraphPage />} />  {/* Add the new route */}
+          <Route path="/login" element={<LoginPage onLogin={handleLogin} />} />
+          <Route path="/register" element={<RegisterPage onRegister={handleRegister} />} />
+          <Route path="/" element={<LoginPage onLogin={handleLogin} />} /> {/* Default to Login if not logged in */}
         </Routes>
-      </div>
+      )}
     </Router>
   );
 }

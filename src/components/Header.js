@@ -33,17 +33,16 @@ function Header({ isLoggedIn, onLogout, user, profile }) {
     <nav className="navbar">
       <div className="navbar-brand">
         <Link to="/">
-          <img src="/image/HydrogenLeakagelogo.png" alt="Hydrogen Leakage System Logo" className="logo" />
+          <img src="/image/petronaslogo.png" alt="petronas Logo" className="logo" />
         </Link>
       </div>
+
+      <div className="navbar-title">Hydrogen System Alert</div>
 
       <div className="navbar-collapse">
         <ul className="navbar-nav">
           {isLoggedIn ? (
             <>
-              <li className="nav-item">
-                <Link to="/graph" className="nav-link">Graph</Link>
-              </li>
               <li className="nav-item profile-menu" ref={profileMenuRef}>
                 <button className="nav-link profile-icon-button" onClick={toggleProfileMenu}>
                   {profile && profile.profileImage ? (

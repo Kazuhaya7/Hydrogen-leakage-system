@@ -1,0 +1,26 @@
+.log-history-container {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.log-history-container h2 {
+  margin-bottom: 20px;
+}
+
+.log-history-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.log-history-table th,
+.log-history-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.log-history-table th {
+  background-color: #f0f0f0;
+  font-weight: bold;
+}
