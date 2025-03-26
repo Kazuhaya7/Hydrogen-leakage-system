@@ -87,6 +87,7 @@ function HomePage() {
 
   return (
     <div className="dashboard-container">
+           <h1 className="dashboard-title">Dashboard</h1>
       {/* Top Row */}
       <div className="top-row">
         <div className="date-time-location">

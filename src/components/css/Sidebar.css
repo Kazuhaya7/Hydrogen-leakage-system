@@ -3,6 +3,8 @@
   background-color: #f0f0f0;
   padding: 10px 20px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: flex-start; /* Center the content horizontally */
 }
 
 .horizontal-nav-list {
@@ -19,7 +21,8 @@
 }
 
 .horizontal-nav-list a {
-  display: block;
+  display: flex; /* Use flexbox for icon and text alignment */
+  align-items: center;
   padding: 8px 15px;
   text-decoration: none;
   color: #333;
@@ -29,4 +32,12 @@
 
 .horizontal-nav-list a:hover {
   background-color: #ddd;
+}
+
+/* Style the icons */
+.nav-icon {
+  width: 20px;          /* Adjust as needed */
+  height: 20px;         /* Adjust as needed */
+  margin-right: 8px;   /* Spacing between icon and text */
+  vertical-align: middle; /* Align icons vertically */
 }

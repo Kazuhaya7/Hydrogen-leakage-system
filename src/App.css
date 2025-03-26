@@ -3,7 +3,3 @@
   min-height: calc(100vh - 60px); /*Adjust calc value depending on the height of the header*/
 }
 
-.content {
-  flex: 1; /* Content will take up remaining space */
-  padding: 20px;
-}
